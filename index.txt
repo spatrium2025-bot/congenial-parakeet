@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VANTOM — Built for Your Face</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/400.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/600.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5/700.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--bg:#0d0d0d;
+--bg2:#151515;
+--gold:#D4AF37;
+--gold2:#E8CC6E;
+--text:#fff;
+--muted:#aaa;
+--font-main:'Inter',sans-serif;
+--font-head:'Playfair Display',serif;
+}
+
+body{
+font-family:var(--font-main);
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;left:0;right:0;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+z-index:1000;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(20px);
+}
+
+nav span{
+font-family:var(--font-head);
+color:var(--gold);
+letter-spacing:0.2em;
+font-size:20px;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(0.35);
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.9));
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+}
+
+h1{
+font-family:var(--font-head);
+font-size:clamp(3rem,8vw,6rem);
+letter-spacing:0.2em;
+}
+
+.gold{
+background:linear-gradient(135deg,var(--gold2),var(--gold));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-sub{
+margin-top:20px;
+font-size:1.2rem;
+color:var(--muted);
+}
+
+.btn{
+margin-top:30px;
+display:inline-block;
+padding:14px 40px;
+background:linear-gradient(135deg,var(--gold2),var(--gold));
+color:#000;
+text-decoration:none;
+font-weight:600;
+border-radius:6px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(212,175,55,0.4);
+}
+
+/* SECTION */
+section{
+padding:120px 40px;
+max-width:1200px;
+margin:auto;
+}
+
+h2{
+font-family:var(--font-head);
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+p{
+color:var(--muted);
+max-width:600px;
+}
+
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.card{
+background:var(--bg2);
+padding:20px;
+border-radius:12px;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:var(--gold);
+}
+
+.card img{
+width:100%;
+border-radius:8px;
+margin-bottom:15px;
+transition:0.4s;
+}
+
+.card:hover img{
+transform:scale(1.05);
+}
+
+.price{
+color:var(--gold);
+font-size:1.5rem;
+font-family:var(--font-head);
+}
+
+/* PROGRESS */
+.progress{
+margin-top:40px;
+height:8px;
+background:#222;
+border-radius:100px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:var(--gold);
+box-shadow:0 0 20px var(--gold);
+transition:2s;
+}
+
+/* ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+section{padding:80px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<span>VANTOM</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<video autoplay muted loop playsinline poster="preview.jpg">
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<div class="hero-content">
+<h1>VAN<span class="gold">TOM</span></h1>
+<div class="hero-sub">Not chosen. Built for your face.</div>
+<a href="#buy" class="btn">Поддержать проект</a>
+</div>
+</div>
+
+<!-- STORY -->
+<section class="fade">
+<h2>Конец компромиссам</h2>
+<p>
+Ты больше не выбираешь очки.  
+Они создаются под тебя.  
+Форма, посадка, баланс — всё рассчитывается по твоему лицу.
+</p>
+</section>
+
+<!-- PRODUCT -->
+<section id="buy" class="fade">
+<h2>Выбери свой <span class="gold">VANTOM</span></h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="1.jpg">
+<div class="price">5 000 ₽</div>
+<p>Скан + доступ к системе</p>
+</div>
+
+<div class="card">
+<img src="2.jpg">
+<div class="price">15 000 ₽</div>
+<p>Персональные очки</p>
+</div>
+
+<div class="card">
+<img src="3.jpg">
+<div class="price">45 000 ₽</div>
+<p>Премиум кастом</p>
+</div>
+
+<div class="card">
+<img src="4.jpg">
+<div class="price">100 000 ₽</div>
+<p>Founder Edition</p>
+</div>
+
+</div>
+</section>
+
+<!-- FUNDING -->
+<section class="fade">
+<h2>Прогресс сборов</h2>
+
+<div id="money">0 ₽</div>
+
+<div class="progress">
+<div class="progress-bar" id="bar"></div>
+</div>
+
+<a href="#" class="btn">Инвестировать</a>
+</section>
+
+<script>
+
+// reveal
+const obs = new IntersectionObserver(e=>{
+e.forEach(x=>{
+if(x.isIntersecting)x.target.classList.add('show')
+})
+})
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el))
+
+// progress
+function run(){
+let amount=245000;
+let goal=1500000;
+let percent=(amount/goal)*100;
+
+document.getElementById("bar").style.width=percent+"%";
+
+let i=0;
+let el=document.getElementById("money");
+
+let int=setInterval(()=>{
+i+=amount/60;
+if(i>=amount){i=amount;clearInterval(int)}
+el.innerText=Math.floor(i).toLocaleString()+" ₽";
+},20)
+}
+
+setTimeout(run,1000);
+
+// navbar blur
+window.addEventListener('scroll',()=>{
+document.querySelector('nav').style.background=
+window.scrollY>50?"rgba(0,0,0,0.9)":"rgba(0,0,0,0.5)";
+});
+
+</script>
+
+</body>
+</html>
